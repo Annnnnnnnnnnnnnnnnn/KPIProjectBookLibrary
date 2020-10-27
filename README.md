@@ -42,7 +42,7 @@ API to fetch cats using paginated API. If the client omits the parameter you sho
 
 Example:
 
-![alt text](paginatation.png)
+![alt text](img/paginatation.png)
 
 ## Filtering
 
@@ -54,7 +54,7 @@ API to return cats with the given breed as parameter
 
 Example:
 
-![alt text](filtering.png)
+![alt text](img/filtering.png)
 
 
 ## Sorting
@@ -66,7 +66,7 @@ GET Fetch cats, sorted by name (ascending)
 
 Example:
 
-![alt text](sorting.png)
+![alt text](img/sorting.png)
 
 
 ## Status codes
