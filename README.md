@@ -1,4 +1,4 @@
-## BookLibrary
+### BookLibrary
 
 ## Architecture.Development View
 Основні компоненти програми, сервіси, які спілкуються між собою, база даних,протокол роботи HTTP
@@ -40,6 +40,35 @@ GET Fetch cats
 {{url}}/cats?offset=1&limit=10
 API to fetch cats using paginated API. If the client omits the parameter you should use defaults (like offset=0 and limit=10)
 
+Example:
+
+![alt text](paginatation.png)
+
+## Filtering
+
+Use a unique query parameter for each field that implements filtering. For example, when requesting a list of tickets from the /cats endpoint, you may want to limit these to only those with color white. This could be accomplished with a request like GET /cats?breed=birman. Here, the breed is a query parameter that implements a filter
+
+GET Filter cats by breed
+{{url}}/cats?breed={{breedName}}
+API to return cats with the given breed as parameter
+
+Example:
+
+![alt text](filtering.png)
+
+
+## Sorting
+
+A generic parameter sort can be used to describe sorting rules. Accommodate complex sorting requirements by letting the sort parameter take in a list of comma separated fields, each with a possible unary negative to imply descending sort order.
+
+GET Fetch cats, sorted by name (ascending)
+{{url}}/cats?sort=name
+
+Example:
+
+![alt text](sorting.png)
+
+
 ## Status codes
 
 When the client raises a request to the server through an API, the client should know the feedback, whether it failed, passed or the request was wrong. HTTP status codes are a bunch of standardized codes which has various explanations in various scenarios. The server should always return the right status code.
@@ -64,6 +93,23 @@ Note: The use of the term "major version number" above is taken from semantic ve
 A new major version of an API must not depend on a previous major version of the same API. An API may depend on other APIs, with an expectation that the caller understands the dependency and stability risk associated with those APIs. In this scenario, a stable API version must only depend on stable versions of other APIs.
 
 Different versions of the same API must be able to work at the same time within a single client application for a reasonable transition period. This time period allows the client to transition smoothly to the newer version. An older version must go through a reasonable, well-communicated deprecation period before being shut down.
+
+## HTTP mapping
+For custom methods, they should use the following generic HTTP mapping:
+
+https://service.name/v1/some/resource/name:customVerb
+
+The reason to use : instead of / to separate the custom verb from the resource name is to support arbitrary paths. For example, undelete a file can map to POST /files/a/long/file/name:undelete
+
+The following guidelines shall be applied when choosing the HTTP mapping:
+
+Custom methods should use HTTP POST verb since it has the most flexible semantics, except for methods serving as an alternative get or list which may use GET when possible. (See third bullet for specifics.)
+Custom methods should not use HTTP PATCH, but may use other HTTP verbs. In such cases, the methods must follow the standard HTTP semantics for that verb.
+Notably, custom methods using HTTP GET must be idempotent and have no side effects. For example custom methods that implement special views on the resource should use HTTP GET.
+The request message field(s) receiving the resource name of the resource or collection with which the custom method is associated should map to the URL path.
+The URL path must end with a suffix consisting of a colon followed by the custom verb.
+If the HTTP verb used for the custom method allows an HTTP request body (this applies to POST, PUT, PATCH, or a custom HTTP verb), the HTTP configuration of that custom method must use the body: "*" clause and all remaining request message fields shall map to the HTTP request body.
+If the HTTP verb used for the custom method does not accept an HTTP request body (GET, DELETE), the HTTP configuration of such method must not use the body clause at all, and all remaining request message fields shall map to the URL query parameters.
 
 ## Swagger file screenshots
 
