@@ -3,7 +3,7 @@
 ## Architecture.Development View
 Основні компоненти програми, сервіси, які спілкуються між собою, база даних,протокол роботи HTTP
 
-![alt text](img/developmentview.png)
+![alt text](img/2.png)
 
 ### API design guideline 
 ## -Protocol HTTP;
