@@ -11,7 +11,7 @@ Desired behaviour 2: If connection is lost during runtime, then healthcheck shou
 ***Authors service fails to communicate to publish service*** - Desired behaviour: we should retry request up to 5 times with an exponentially increasing delay (2 - 30 seconds) . If publish service produces a lot of errors in general, we should block percentage of new requests to upload service with "Service Unavailable" response.
 Desired behaviour 2: client gets a notification about error and has to try upload page again later.
 
-***Monitoring service fails to communicate to one or multiple targets*** for more than 1 hour - write to log and alert.
+***User service fails to communicate to one or multiple targets*** for more than 1 hour - write to log and alert.
 
 ## 2. Client-Server Communication
 
