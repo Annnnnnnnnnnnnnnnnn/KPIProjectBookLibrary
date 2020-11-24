@@ -17,7 +17,7 @@ Checking:
 - Security
 
 Used testing types: unit testing, integration testing, smoke testing, gui testing.
-Test coverage must be under 50% and near 90% for unit tests
+Test coverage must be more than 50% and near 90% for unit tests
 ### **Tools for CI/CD**
 Source version control - github
 
