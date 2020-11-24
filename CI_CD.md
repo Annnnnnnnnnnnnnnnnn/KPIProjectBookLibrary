@@ -18,7 +18,7 @@ documentation - swagger
 
 
 
-## 2 *** Branching strategy***
+## 2 ***Branching strategy***
 Choosed branching strategy - Three Flow
 ![flow](img/threeflow.png)
 In this approach, all developers work in the same master branch. If a feature is trivial, it is simply implemented and added in one commit. If the development of a feature takes some time, then first a flag (disabled by default) is added to activate it. The developer enables this flag locally for developing and testing a new feature, but the code in the main repository still uses the “old” code branches. To add commits to master, rebase is used. If you used a local branch to work on a feature, it should be moved to master, so we won't have any traces of that branch in origin.
