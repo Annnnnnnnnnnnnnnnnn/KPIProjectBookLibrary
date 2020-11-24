@@ -15,6 +15,7 @@ Checking:
 - Does the code meet the requirements of the existing styling guidelines
 - Working with DB
 - Security
+
 Used testing types: unit testing, integration testing, smoke testing, gui testing.
 Test coverage must be under 50% and near 90% for module tests
 ### **Tools for CI/CD**
