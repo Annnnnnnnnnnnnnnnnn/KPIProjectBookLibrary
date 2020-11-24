@@ -17,11 +17,14 @@ Checking:
 - Security
 
 Used testing types: unit testing, integration testing, smoke testing, gui testing.
-Test coverage must be under 50% and near 90% for module tests
+Test coverage must be under 50% and near 90% for unit tests
 ### **Tools for CI/CD**
 Source version control - github
+
 CI server - Jenkins
+
 code quality checking - SonarQube
+
 documentation - swagger
 
 ## 2 ***Branching strategy***
