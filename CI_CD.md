@@ -7,16 +7,21 @@ Once in 1-2 week if it is small features.
 
 ### **Enviroments**
 Local, CI, Integration, QA, Staging, Prod.
+![stages](img/stages.png)
 ### **Quality gates, testing**
+Checking:
+- Is the code fully usable for all use cases described in the code requirements
+- Do the new automated tests cover the added code enough
+- Does the code meet the requirements of the existing styling guidelines
+- Working with DB
+- Security
 Used testing types: unit testing, integration testing, smoke testing, gui testing.
-
-### **Tolls for CI/CD**
+Test coverage must be under 50% and near 90% for module tests
+### **Tools for CI/CD**
 Source version control - github
 CI server - Jenkins
 code quality checking - SonarQube
 documentation - swagger
-
-
 
 ## 2 ***Branching strategy***
 Choosed branching strategy - Three Flow
